@@ -1,0 +1,191 @@
+name: TYPO3 CMS project
+
+steps:
+  - type: collectBuildInstructions
+  - type: processSourceFiles
+    options:
+      fileConditions:
+        # Deployer
+        - path: '.deployment/*'
+          if: 'features["deployer"]'
+        - path: 'deploy.php'
+          if: 'features["deployer"]'
+        # PHPStan
+        - path: 'phpstan.neon'
+          if: 'features["phpstan"]'
+        # Rector
+        - path: 'rector.php.twig'
+          if: 'features["rector"]'
+  - type: mirrorProcessedFiles
+  - type: showNextSteps
+    options:
+      templateFile: templates/next-steps.html.twig
+
+properties:
+  # Project
+  - identifier: project
+    name: Project
+    properties:
+      - identifier: name
+        name: Project name
+        type: staticValue
+        validators:
+          - type: notEmpty
+      - identifier: vendor
+        name: Vendor name
+        type: staticValue
+        validators:
+          - type: notEmpty
+      - identifier: package_name
+        name: Composer package name
+        type: staticValue
+        defaultValue: "{{ project.vendor|slugify }}/{{ project.name|slugify }}"
+        validators:
+          - type: notEmpty
+      - identifier: url
+        name: Website URL
+        type: staticValue
+        validators:
+          - type: notEmpty
+          - type: url
+
+  # Packages
+  - identifier: packages
+    name: Packages
+    properties:
+      - identifier: typo3_cms
+        name: TYPO3 version
+        type: select
+        options:
+          - value: 11.5
+        validators:
+          - type: notEmpty
+      - identifier: typo3_console
+        name: TYPO3 console version
+        type: dynamicSelect
+        options:
+          - value: '^7.0.3'
+            if: 'packages["typo3_cms"] == "11.5"'
+      - identifier: php
+        name: PHP version
+        type: select
+        options:
+          - value: '8.1'
+          - value: '8.0'
+        validators:
+          - type: notEmpty
+
+  # Features
+  - identifier: features
+    name: Additional features
+    properties:
+      - identifier: phpstan
+        name: Should <comment>PHPStan</comment> be integrated?
+        type: question
+      - identifier: rector
+        name: Should <comment>Rector</comment> be integrated?
+        type: question
+      - identifier: deployer
+        name: Do you want a basic <comment>Deployer</comment> deployment configuration?
+        type: question
+
+  # Deployer
+  - identifier: deployer
+    name: Deployer configuration
+    if: 'features["deployer"]'
+    properties:
+      - identifier: hosts.production.hostname
+        name: 'Production: Hostname or IP address'
+        type: staticValue
+        defaultValue: "{{ resolve_ip(project.url) }}"
+        validators:
+          - type: notEmpty
+      - identifier: hosts.production.remote_user
+        name: 'Production: Remote user'
+        type: staticValue
+        validators:
+          - type: notEmpty
+      - identifier: hosts.staging.confirmation
+        name: Do you want to add a <comment>staging server</comment>?
+        type: question
+        defaultValue: true
+      - identifier: hosts.staging.hostname
+        name: 'Staging: Hostname or IP address'
+        if: 'deployer["hosts"]["staging"]["confirmation"]'
+        type: staticValue
+        validators:
+          - type: notEmpty
+      - identifier: hosts.staging.remote_user
+        name: 'Staging: Remote user'
+        if: 'deployer["hosts"]["staging"]["confirmation"]'
+        type: staticValue
+        defaultValue: "{{ deployer.hosts.production.remote_user }}"
+        validators:
+          - type: notEmpty
+      - identifier: hosts.dev.confirmation
+        name: Do you want to add a <comment>dev server</comment>?
+        type: question
+        defaultValue: true
+      - identifier: hosts.dev.hostname
+        name: 'Dev: Hostname or IP address'
+        if: 'deployer["hosts"]["dev"]["confirmation"]'
+        type: staticValue
+        validators:
+          - type: notEmpty
+      - identifier: hosts.dev.remote_user
+        name: 'Dev: Remote user'
+        if: 'deployer["hosts"]["dev"]["confirmation"]'
+        type: staticValue
+        defaultValue: "{{ deployer.hosts.production.remote_user }}"
+        validators:
+          - type: notEmpty
+
+  # DDEV
+  - identifier: ddev
+    name: DDEV configuration
+    properties:
+      - identifier: name
+        name: Name
+        type: staticValue
+        defaultValue: "{{ project.name|slugify }}"
+        validators:
+          - type: notEmpty
+      - identifier: webserver_type
+        name: Webserver type
+        type: select
+        options:
+          - value: Apache
+          - value: Nginx
+        validators:
+          - type: notEmpty
+      - identifier: db_driver
+        name: Database driver
+        type: select
+        options:
+          - value: MySQL
+          - value: MariaDB
+        validators:
+          - type: notEmpty
+      - identifier: db_version
+        name: Database version
+        type: staticValue
+        validators:
+          - type: notEmpty
+
+  # Author
+  - identifier: author
+    name: About you
+    properties:
+      - identifier: name
+        name: Your name
+        type: staticValue
+        defaultValue: '{{ get_default_author_name() }}'
+        validators:
+          - type: notEmpty
+      - identifier: email
+        name: Your e-mail address
+        type: staticValue
+        defaultValue: '{{ get_default_author_email() }}'
+        validators:
+          - type: notEmpty
+          - type: email

@@ -1,0 +1,139 @@
+{
+	"name": "{{ project.package_name }}",
+	"description": "Project bundle for the {{ project.name }} TYPO3 {{ packages.typo3_cms }} project",
+	"license": "GPL-2.0-or-later",
+	"type": "project",
+	"authors": [
+		{
+			"name": "{{ author.name }}",
+			"email": "{{ author.email }}"
+		}
+	],
+	"homepage": "{{ project.url }}",
+	"require": {
+		"helhum/typo3-console": "{{ packages.typo3_console }}",
+		"typo3/cms-backend": "^{{ packages.typo3_cms }}",
+		"typo3/cms-belog": "^{{ packages.typo3_cms }}",
+		"typo3/cms-beuser": "^{{ packages.typo3_cms }}",
+		"typo3/cms-core": "^{{ packages.typo3_cms }}",
+		"typo3/cms-dashboard": "^{{ packages.typo3_cms }}",
+		"typo3/cms-extbase": "^{{ packages.typo3_cms }}",
+		"typo3/cms-extensionmanager": "^{{ packages.typo3_cms }}",
+		"typo3/cms-felogin": "^{{ packages.typo3_cms }}",
+		"typo3/cms-filelist": "^{{ packages.typo3_cms }}",
+		"typo3/cms-fluid": "^{{ packages.typo3_cms }}",
+		"typo3/cms-fluid-styled-content": "^{{ packages.typo3_cms }}",
+		"typo3/cms-form": "^{{ packages.typo3_cms }}",
+		"typo3/cms-frontend": "^{{ packages.typo3_cms }}",
+		"typo3/cms-impexp": "^{{ packages.typo3_cms }}",
+		"typo3/cms-info": "^{{ packages.typo3_cms }}",
+		"typo3/cms-install": "^{{ packages.typo3_cms }}",
+		"typo3/cms-rte-ckeditor": "^{{ packages.typo3_cms }}",
+		"typo3/cms-seo": "^{{ packages.typo3_cms }}",
+		"typo3/cms-setup": "^{{ packages.typo3_cms }}",
+		"typo3/cms-sys-note": "^{{ packages.typo3_cms }}",
+		"typo3/cms-t3editor": "^{{ packages.typo3_cms }}",
+		"typo3/cms-tstemplate": "^{{ packages.typo3_cms }}",
+		"typo3/cms-viewpage": "^{{ packages.typo3_cms }}"
+	},
+	"require-dev": {
+{% if features.deployer %}
+		"deployer/deployer": "^7.0",
+{% endif %}
+		"ergebnis/composer-normalize": "^2.28",
+		"helmich/typo3-typoscript-lint": "^3.0",
+{% if features.phpstan %}
+		"phpstan/extension-installer": "^1.2",
+		"phpstan/phpstan": "^1.8",
+{% endif %}
+		"roave/security-advisories": "dev-latest",
+{% if features.phpstan %}
+		"saschaegerer/phpstan-typo3": "^1.8",
+{% endif %}
+{% if features.rector %}
+		"ssch/typo3-rector": "^1.0",
+{% endif %}
+		"typo3/coding-standards": "^0.5.5"
+	},
+	"repositories": [
+		{
+			"type": "path",
+			"url": "./packages/*"
+		}
+	],
+	"config": {
+		"allow-plugins": {
+			"ergebnis/composer-normalize": true,
+{% if features.phpstan %}
+			"phpstan/extension-installer": true,
+{% endif %}
+			"typo3/class-alias-loader": true,
+			"typo3/cms-composer-installers": true
+		},
+		"platform": {
+			"php": "{{ get_latest_stable_php_version(packages.php) }}"
+		},
+		"sort-packages": true
+	},
+	"scripts": {
+		"post-autoload-dump": [
+			"@typo3-cms-scripts"
+		],
+		"fix": [
+			"@fix:composer",
+			"@fix:editorconfig",
+			"@fix:php"
+		],
+		"fix:composer": "@composer normalize",
+		"fix:editorconfig": "ec --fix",
+		"fix:php": "php-cs-fixer fix",
+		"lint": [
+			"@lint:composer",
+			"@lint:editorconfig",
+			"@lint:php",
+			"@lint:typoscript"
+		],
+		"lint:composer": "@composer normalize --dry-run",
+		"lint:editorconfig": "ec",
+		"lint:php": "php-cs-fixer fix --dry-run",
+		"lint:typoscript": "typoscript-lint",
+{% if features.rector %}
+		"migration": [
+			"@migration:rector"
+		],
+		"migration:rector": [
+			"Composer\\Config::disableProcessTimeout",
+			"rector process"
+		],
+{% endif %}
+{% if features.phpstan %}
+		"sca": [
+			"@sca:php"
+		],
+		"sca:php": "phpstan analyse -c phpstan.neon --memory-limit=2G $(find packages/* -type d -maxdepth 1 -name 'Classes' -o -name 'Configuration' -o -name 'Tests')",
+{% endif %}
+		"typo3-cms-scripts": [
+			"typo3cms install:fixfolderstructure"
+		]
+	},
+	"scripts-descriptions": {
+		"fix": "Fix all code quality issues reported by the registered linters",
+		"fix:composer": "Fix all issues in `composer.json`",
+		"fix:editorconfig": "Fix all styling issues violating the `.editorconfig` rules",
+		"fix:php": "Fix all styling issues violating the configured PHP-CS-Fixer rules",
+		"lint": "Run all registered linters to detect code quality issues",
+		"lint:composer": "Lint `composer.json` to detect unnormalized styles",
+		"lint:editorconfig": "Lint all project files to detect violations of the `.editorconfig` rules",
+		"lint:php": "Lint all PHP files to detect coding style violations",
+		"lint:typoscript": "Lint all TypoScript and TSconfig files to detect coding style violations",
+{% if features.rector %}
+		"migration": "Run all registered automatic code migrations",
+		"migration:rector": "Perform automatic code migration with TYPO3 Rector, based on the registered rules",
+{% endif %}
+{% if features.phpstan %}
+		"sca": "Run all registered static code analyzers to detect issues in the codebase",
+		"sca:php": "Analyze all PHP files by using PHPStan, based on the configured level",
+{% endif %}
+		"typo3-cms-scripts": "Perform TYPO3-related initialization scripts (this normally happens automatically)"
+	}
+}

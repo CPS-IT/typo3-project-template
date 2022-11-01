@@ -1,0 +1,56 @@
+{
+	"name": "cpsit/typo3-project-template",
+	"description": "Project builder template for new TYPO3 CMS projects",
+	"license": "GPL-3.0-or-later",
+	"type": "project-builder-template",
+	"authors": [
+		{
+			"name": "Elias Häußler",
+			"email": "e.haeussler@familie-redlich.de",
+			"homepage": "https://www.familie-redlich.de",
+			"role": "Maintainer"
+		}
+	],
+	"require-dev": {
+		"armin/editorconfig-cli": "^1.5",
+		"cpsit/project-builder": "^0.3.2",
+		"ergebnis/composer-normalize": "^2.28",
+		"friendsoftwig/twigcs": "^6.0"
+	},
+	"config": {
+		"allow-plugins": {
+			"composer/installers": false,
+			"ergebnis/composer-normalize": true,
+			"oomphinc/composer-installers-extender": false,
+			"wikimedia/composer-merge-plugin": false
+		},
+		"sort-packages": true
+	},
+	"scripts": {
+		"fix": [
+			"@fix:composer",
+			"@fix:editorconfig"
+		],
+		"fix:composer": "@composer normalize",
+		"fix:editorconfig": "ec --fix",
+		"lint": [
+			"@lint:composer",
+			"@lint:editorconfig",
+			"@lint:twig"
+		],
+		"lint:composer": "@composer normalize --dry-run",
+		"lint:editorconfig": "ec",
+		"lint:twig": "twigcs templates",
+		"validate-schema": "docker run --rm -v \"$(pwd)\":/code swaggest/json-cli json-cli validate-schema config.yaml vendor/cpsit/project-builder/resources/config.schema.json"
+	},
+	"scripts-descriptions": {
+		"fix": "Fix all code quality issues reported by the registered linters",
+		"fix:composer": "Fix all issues in `composer.json`",
+		"fix:editorconfig": "Fix all styling issues violating the `.editorconfig` rules",
+		"lint": "Run all registered linters to detect code quality issues",
+		"lint:composer": "Lint `composer.json` to detect unnormalized styles",
+		"lint:editorconfig": "Lint all project files to detect violations of the `.editorconfig` rules",
+		"lint:twig": "Lint all Twig templates to detect coding style violations",
+		"validate-schema": "Validate the `config.yaml` file for possible schema violations"
+	}
+}
