@@ -1,0 +1,18 @@
+<comment>Initialize the project</comment>
+<comment>======================</comment>
+
+Switch to the new project and run <comment>ddev start</comment>.
+Now install all Composer packages by running <comment>ddev composer update</comment>.
+Run <comment>ddev config --auto</comment> to create the final DDEV configuration.
+
+<comment>Install TYPO3</comment>
+<comment>=============</comment>
+
+You can now launch your installed project with <comment>ddev launch</comment>.
+Follow all installation instructions to finalize the TYPO3 installation.
+
+<comment>Add project packages</comment>
+<comment>====================</comment>
+
+Additional project packages and TYPO3 extensions should be added within the <comment>packages</comment> directory.
+When requiring them via Composer, they get automatically linked to the target destinations.

@@ -1,0 +1,9 @@
+hosts:
+{% for stage, config in deployer.hosts|filter(host => host.confirmation is not defined or host.confirmation) %}
+  {{ stage }}:
+    hostname: '{{ config.hostname }}'
+    remote_user: '{{ config.remote_user }}'
+    port: 22
+    deploy_path: '/var/www/html'
+
+{% endfor %}
