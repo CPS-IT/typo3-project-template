@@ -13,7 +13,7 @@
 	],
 	"require-dev": {
 		"armin/editorconfig-cli": "^1.5",
-		"cpsit/project-builder": "^0.3.2",
+		"cpsit/project-builder": "^1.0",
 		"ergebnis/composer-normalize": "^2.28",
 		"friendsoftwig/twigcs": "^6.0"
 	},
