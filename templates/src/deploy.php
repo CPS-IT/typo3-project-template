@@ -134,7 +134,7 @@ after('deploy:symlink', function () {
     invoke('typo3:extension_setup');
     invoke('typo3:upgrade_all');
     invoke('typo3:cache_flush');
-//    invoke('cachetool:clear:opcache');
+    invoke('cachetool:clear:opcache');
     invoke('typo3:cache_warmup');
 });
 
