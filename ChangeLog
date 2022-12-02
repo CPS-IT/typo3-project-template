@@ -1,3 +1,6 @@
+2022-12-02         [RELEASE] Release of typo3-project-template 1.1.1 (Elias Häußler)
+2022-12-02 6d0c4b8 [BUGFIX] Re-enable commented opcache clear in deploy.php template (Elias Häußler)
+
 2022-12-02         [RELEASE] Release of typo3-project-template 1.1.0 (Elias Häußler)
 2022-12-01 7bd0349 [FEATURE] Include TYPO3 testing framework in project template (Elias Häußler)
 2022-12-01 84738b7 [BUGFIX] Use correct syntax to find package paths for PHPStan analyse (Elias Häußler)
