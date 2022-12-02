@@ -37,6 +37,7 @@
 		"typo3/cms-viewpage": "^{{ packages.typo3_cms }}"
 	},
 	"require-dev": {
+		"armin/editorconfig-cli": "^1.5",
 {% if features.deployer %}
 		"deployer/deployer": "^7.0",
 {% endif %}
@@ -53,7 +54,8 @@
 {% if features.rector %}
 		"ssch/typo3-rector": "^1.0",
 {% endif %}
-		"typo3/coding-standards": "^0.5.5"
+		"typo3/coding-standards": "^0.5.5",
+		"typo3/testing-framework": "^6.16"
 	},
 	"repositories": [
 		{
@@ -110,8 +112,12 @@
 		"sca": [
 			"@sca:php"
 		],
-		"sca:php": "phpstan analyse -c phpstan.neon --memory-limit=2G $(find packages/* -type d -maxdepth 1 -name 'Classes' -o -name 'Configuration' -o -name 'Tests')",
+		"sca:php": "phpstan analyse -c phpstan.neon --memory-limit=2G $(find packages -mindepth 2 -maxdepth 2 -type d -name 'Classes' -o -name 'Configuration' -o -name 'Tests')",
 {% endif %}
+		"test": [
+			"@test:unit"
+		],
+		"test:unit": "phpunit -c phpunit.xml",
 		"typo3-cms-scripts": [
 			"typo3cms install:fixfolderstructure"
 		]
@@ -134,6 +140,8 @@
 		"sca": "Run all registered static code analyzers to detect issues in the codebase",
 		"sca:php": "Analyze all PHP files by using PHPStan, based on the configured level",
 {% endif %}
+		"test": "Run all configured test suites",
+		"test:unit": "Run unit tests for all local packages",
 		"typo3-cms-scripts": "Perform TYPO3-related initialization scripts (this normally happens automatically)"
 	}
 }

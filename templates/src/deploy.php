@@ -63,6 +63,7 @@ $exclude = [
     'auth.json',
     'deploy.php',
     'phpstan.neon',
+    'phpunit.xml',
     'README*',
     'rector.php',
     'typoscript-lint.yml',
