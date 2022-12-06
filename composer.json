@@ -19,10 +19,7 @@
 	},
 	"config": {
 		"allow-plugins": {
-			"composer/installers": false,
-			"ergebnis/composer-normalize": true,
-			"oomphinc/composer-installers-extender": false,
-			"wikimedia/composer-merge-plugin": false
+			"ergebnis/composer-normalize": true
 		},
 		"sort-packages": true
 	},

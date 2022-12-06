@@ -1,3 +1,7 @@
+2022-12-06         [RELEASE] Release of typo3-project-template 1.1.2 (Elias Häußler)
+2022-12-06 8662a28 [BUGFIX] Provide default value for DDEV database version (Elias Häußler)
+2022-12-05 f0e07dd [BUGFIX] Remove superfluous `allow-plugins` configuration (Elias Häußler)
+
 2022-12-02         [RELEASE] Release of typo3-project-template 1.1.1 (Elias Häußler)
 2022-12-02 6d0c4b8 [BUGFIX] Re-enable commented opcache clear in deploy.php template (Elias Häußler)
 
