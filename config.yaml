@@ -169,6 +169,7 @@ properties:
       - identifier: db_version
         name: Database version
         type: staticValue
+        defaultValue: "{% if ddev.db_driver == \"MySQL\" %}8.0{% else %}10.4{% endif %}"
         validators:
           - type: notEmpty
 
