@@ -16,6 +16,13 @@ steps:
         # Rector
         - path: 'rector.php.twig'
           if: 'features["rector"]'
+        # GPL licenses
+        - path: 'LICENSE.GPL-2.0.txt'
+          if: 'project["license"] == "GNU General Public License v2.0"'
+          target: 'LICENSE.txt'
+        - path: 'LICENSE.GPL-3.0.txt'
+          if: 'project["license"] == "GNU General Public License v3.0"'
+          target: 'LICENSE.txt'
   - type: mirrorProcessedFiles
   - type: showNextSteps
     options:
@@ -48,6 +55,12 @@ properties:
         validators:
           - type: notEmpty
           - type: url
+      - identifier: license
+        name: License
+        type: select
+        options:
+          - value: GNU General Public License v2.0
+          - value: GNU General Public License v3.0
 
   # Packages
   - identifier: packages
