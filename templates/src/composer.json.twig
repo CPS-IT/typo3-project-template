@@ -10,12 +10,8 @@
 		}
 	],
 	"homepage": "{{ project.url }}",
-
 	"require": {
 		"helhum/typo3-console": "{{ packages.typo3_console }}",
-{% if packages.typo3_cms == '10.4' %}
-		"typo3/cms-about": "^{{ packages.typo3_cms }}",
-{% endif %}
 		"typo3/cms-adminpanel": "^{{ packages.typo3_cms }}",
 		"typo3/cms-backend": "^{{ packages.typo3_cms }}",
 		"typo3/cms-belog": "^{{ packages.typo3_cms }}",
