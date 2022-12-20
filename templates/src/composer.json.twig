@@ -10,8 +10,13 @@
 		}
 	],
 	"homepage": "{{ project.url }}",
+
 	"require": {
 		"helhum/typo3-console": "{{ packages.typo3_console }}",
+{% if packages.typo3_cms == '10.4' %}
+		"typo3/cms-about": "^{{ packages.typo3_cms }}",
+{% endif %}
+		"typo3/cms-adminpanel": "^{{ packages.typo3_cms }}",
 		"typo3/cms-backend": "^{{ packages.typo3_cms }}",
 		"typo3/cms-belog": "^{{ packages.typo3_cms }}",
 		"typo3/cms-beuser": "^{{ packages.typo3_cms }}",
@@ -19,7 +24,6 @@
 		"typo3/cms-dashboard": "^{{ packages.typo3_cms }}",
 		"typo3/cms-extbase": "^{{ packages.typo3_cms }}",
 		"typo3/cms-extensionmanager": "^{{ packages.typo3_cms }}",
-		"typo3/cms-felogin": "^{{ packages.typo3_cms }}",
 		"typo3/cms-filelist": "^{{ packages.typo3_cms }}",
 		"typo3/cms-fluid": "^{{ packages.typo3_cms }}",
 		"typo3/cms-fluid-styled-content": "^{{ packages.typo3_cms }}",
@@ -28,11 +32,16 @@
 		"typo3/cms-impexp": "^{{ packages.typo3_cms }}",
 		"typo3/cms-info": "^{{ packages.typo3_cms }}",
 		"typo3/cms-install": "^{{ packages.typo3_cms }}",
+		"typo3/cms-lowlevel": "^{{ packages.typo3_cms }}",
+		"typo3/cms-opendocs": "^{{ packages.typo3_cms }}",
+		"typo3/cms-recordlist": "^{{ packages.typo3_cms }}",
+		"typo3/cms-recycler": "^{{ packages.typo3_cms }}",
+		"typo3/cms-redirects": "^{{ packages.typo3_cms }}",
+		"typo3/cms-reports": "^{{ packages.typo3_cms }}",
 		"typo3/cms-rte-ckeditor": "^{{ packages.typo3_cms }}",
+		"typo3/cms-scheduler": "^{{ packages.typo3_cms }}",
 		"typo3/cms-seo": "^{{ packages.typo3_cms }}",
 		"typo3/cms-setup": "^{{ packages.typo3_cms }}",
-		"typo3/cms-sys-note": "^{{ packages.typo3_cms }}",
-		"typo3/cms-t3editor": "^{{ packages.typo3_cms }}",
 		"typo3/cms-tstemplate": "^{{ packages.typo3_cms }}",
 		"typo3/cms-viewpage": "^{{ packages.typo3_cms }}"
 	},
