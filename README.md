@@ -1,6 +1,6 @@
 <div align="center">
 
-![Terminal window](docs/assets/header.png)
+![Terminal window](docs/assets/header.svg)
 
 # TYPO3 CMS project builder template
 
