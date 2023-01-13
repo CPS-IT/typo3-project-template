@@ -34,7 +34,7 @@ jobs:
 
       # Check Composer dependencies
       - name: Check for unused dependencies
-        run: composer-unused
+        run: composer-unused --excludePackage=cpsit/project-builder
 
       # Linting
       - name: Lint composer.json
