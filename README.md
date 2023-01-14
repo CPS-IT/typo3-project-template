@@ -19,8 +19,6 @@ This is a template repository for the [CPS Project Builder](https://github.com/C
 It provides a complete template for new [TYPO3 CMS](https://typo3.org) projects, including a
 ready-to-use DDEV configuration and basic configuration for deployment with Deployer.
 
-⚠️ **This template requires at least `cpsit/project-builder` 1.0.0.**
-
 ## 🚀 Features
 
 ### Core features
