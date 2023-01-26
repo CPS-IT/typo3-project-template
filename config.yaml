@@ -16,6 +16,7 @@ steps:
         # Rector
         - path: 'rector.php.twig'
           if: 'features["rector"]'
+  - type: generateBuildArtifact
   - type: mirrorProcessedFiles
   - type: showNextSteps
     options:
