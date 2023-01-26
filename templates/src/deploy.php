@@ -67,6 +67,7 @@ $exclude = [
     'README*',
     'rector.php',
     'typoscript-lint.yml',
+    '/.build',
     '/.deployment',
     '/var',
     '/**/Tests/*',
