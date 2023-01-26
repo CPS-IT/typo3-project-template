@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c3d53ff4fc9e346e0f071afd026d4f74",
+    "content-hash": "417f5d682943cef8f07eb1d12e6bacf3",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -82,16 +82,16 @@
         },
         {
             "name": "cpsit/project-builder",
-            "version": "1.4.0",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CPS-IT/project-builder.git",
-                "reference": "2349f6e3cc0e5033b7cbd34497fa5e34370c207d"
+                "reference": "5f959aa80c151a1cbfa3116bac477041b522ba92"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CPS-IT/project-builder/zipball/2349f6e3cc0e5033b7cbd34497fa5e34370c207d",
-                "reference": "2349f6e3cc0e5033b7cbd34497fa5e34370c207d",
+                "url": "https://api.github.com/repos/CPS-IT/project-builder/zipball/5f959aa80c151a1cbfa3116bac477041b522ba92",
+                "reference": "5f959aa80c151a1cbfa3116bac477041b522ba92",
                 "shasum": ""
             },
             "require": {
@@ -161,9 +161,9 @@
             "description": "Composer package to create new projects from project templates",
             "support": {
                 "issues": "https://github.com/CPS-IT/project-builder/issues",
-                "source": "https://github.com/CPS-IT/project-builder/tree/1.4.0"
+                "source": "https://github.com/CPS-IT/project-builder/tree/1.6.0"
             },
-            "time": "2023-01-14T21:38:41+00:00"
+            "time": "2023-01-26T07:17:52+00:00"
         },
         {
             "name": "cuyz/valinor",
