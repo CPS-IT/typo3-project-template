@@ -4,11 +4,6 @@ Thanks for considering contributing to this project! Each contribution is
 highly appreciated. In order to maintain a high code quality, please follow
 all steps below.
 
-## Requirements
-
-- Composer
-- PHP >= 8.1
-
 ## Preparation
 
 ```bash
