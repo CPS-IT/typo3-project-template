@@ -42,9 +42,8 @@ ready-to-use DDEV configuration and basic configuration for deployment with Depl
    composer create-project cpsit/project-builder
    ```
 
-2. Select `Packagist.org` as template source.
-3. Select the package `cpsit/typo3-project-template`.
-4. Answer all questions and you're ready to go.
+2. Select the package `cpsit/typo3-project-template`.
+3. Answer all questions and you're ready to go.
 
 ## 🧑‍💻 Development
 

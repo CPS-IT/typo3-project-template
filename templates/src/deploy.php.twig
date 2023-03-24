@@ -1,3 +1,4 @@
+{% verbatim %}
 <?php
 
 declare(strict_types=1);
@@ -14,7 +15,7 @@ import('.deployment/hosts.yaml');
 
 // Define binaries
 set('bin/php', 'php');
-set('bin/typo3cms', '{{release_path}}/vendor/bin/typo3cms');
+set('bin/typo3_console', '{{release_path}}/vendor/bin/{% endverbatim %}{{ typo3_console_binary }}{% verbatim %}');
 
 // Set maximum number of releases
 set('keep_releases', 5);
@@ -97,34 +98,38 @@ task('deploy:update_code', function () {
 // TYPO3 tasks
 desc('Flush all caches');
 task('typo3:cache_flush', function () {
-    run('{{bin/typo3cms}} cache:flush');
+    run('{{bin/typo3_console}} cache:flush');
 });
 
 desc('Warm up caches');
 task('typo3:cache_warmup', function () {
-    run('{{bin/typo3cms}} cache:warmup');
+    run('{{bin/typo3_console}} cache:warmup');
 });
 
 desc('Set up all installed extensions');
 task('typo3:extension_setup', function () {
-    run('{{bin/typo3cms}} extension:setup');
+    run('{{bin/typo3_console}} extension:setup');
 });
 
 desc('Fix folder structure');
 task('typo3:fix_folder_structure', function () {
-    run('{{bin/typo3cms}} install:fixfolderstructure');
+    run('{{bin/typo3_console}} install:fixfolderstructure');
 });
 
 desc('Update language files');
 task('typo3:language_update', function () {
-    run('{{bin/typo3cms}} language:update');
+    run('{{bin/typo3_console}} language:update');
 });
 
 desc('Execute upgrade wizards');
 task('typo3:upgrade_all', function () {
-    run('{{bin/typo3cms}} upgrade:prepare');
-    run('{{bin/typo3cms}} upgrade:run all --confirm all');
-});
+{% if packages.typo3_cms == "11.5" %}
+    run('{{bin/typo3_console}} upgrade:prepare');
+    run('{{bin/typo3_console}} upgrade:run all --confirm all');
+{% else %}
+    run('{{bin/typo3_console}} upgrade:run');
+{% endif %}
+%});
 
 // Register TYPO3 tasks
 before('deploy:symlink', function () {
@@ -148,3 +153,4 @@ task('deploy', [
 
 // Unlock on failed deployment
 after('deploy:failed', 'deploy:unlock');
+{% endverbatim %}

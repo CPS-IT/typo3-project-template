@@ -58,14 +58,33 @@ properties:
         name: TYPO3 version
         type: select
         options:
+          - value: 12.2
           - value: 11.5
         validators:
           - type: notEmpty
+      - identifier: typo3_testing_framework
+        name: TYPO3 testing framework version
+        type: dynamicSelect
+        options:
+          - value: '^7.0@dev'
+            if: 'packages["typo3_cms"] == "12.2"'
+          - value: '^6.16'
+            if: 'packages["typo3_cms"] == "11.5"'
       - identifier: typo3_console
         name: TYPO3 console version
         type: dynamicSelect
         options:
+          - value: '^8.0'
+            if: 'packages["typo3_cms"] == "12.2"'
           - value: '^7.0.3'
+            if: 'packages["typo3_cms"] == "11.5"'
+      - identifier: typo3_console_binary
+        name: TYPO3 console binary
+        type: dynamicSelect
+        options:
+          - value: 'typo3'
+            if: 'packages["typo3_cms"] == "12.2"'
+          - value: 'typo3cms'
             if: 'packages["typo3_cms"] == "11.5"'
       - identifier: php
         name: PHP version
@@ -74,6 +93,7 @@ properties:
           - value: '8.2'
           - value: '8.1'
           - value: '8.0'
+            if: 'packages["typo3_cms"] == "11.5"'
         validators:
           - type: notEmpty
 
