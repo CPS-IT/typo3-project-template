@@ -56,6 +56,9 @@
 {% if features.phpstan %}
 		"saschaegerer/phpstan-typo3": "^1.8",
 {% endif %}
+{% if packages.typo3_cms == "12.2" %}
+		"sbuerk/typo3-cmscomposerinstallers-testingframework-bridge": "^0.1.2",
+{% endif %}
 {% if features.rector %}
 		"ssch/typo3-rector": "^1.0",
 {% endif %}
@@ -73,6 +76,9 @@
 			"ergebnis/composer-normalize": true,
 {% if features.phpstan %}
 			"phpstan/extension-installer": true,
+{% endif %}
+{% if packages.typo3_cms == "12.2" %}
+			"sbuerk/typo3-cmscomposerinstallers-testingframework-bridge": true,
 {% endif %}
 			"typo3/class-alias-loader": true,
 			"typo3/cms-composer-installers": true
