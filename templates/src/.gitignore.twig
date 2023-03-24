@@ -7,10 +7,19 @@
 /public/*
 !/public/.htaccess
 !/public/robots.txt
+{% if packages.typo3_cms == "11.5" %}
 !/public/typo3conf/
 /public/typo3conf/*
 !/public/typo3conf/LocalConfiguration.php
 !/public/typo3conf/AdditionalConfiguration.php
+{% else %}
+!/config/
+/config/*
+!/config/system/
+/config/system/*
+!/config/system/additional.php
+!/config/system/settings.php
+{% endif %}
 
 # Temporary files
 /var/
