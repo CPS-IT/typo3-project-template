@@ -1,6 +1,5 @@
-{% verbatim %}
 <?php
-
+{% verbatim %}
 declare(strict_types=1);
 
 namespace Deployer;
@@ -15,7 +14,7 @@ import('.deployment/hosts.yaml');
 
 // Define binaries
 set('bin/php', 'php');
-set('bin/typo3_console', '{{release_path}}/vendor/bin/{% endverbatim %}{{ typo3_console_binary }}{% verbatim %}');
+set('bin/typo3_console', '{{release_path}}/vendor/bin/{% endverbatim %}{{ packages.typo3_console_binary }}{% verbatim %}');
 
 // Set maximum number of releases
 set('keep_releases', 5);
