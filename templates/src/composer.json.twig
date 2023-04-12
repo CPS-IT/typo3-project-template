@@ -12,6 +12,9 @@
 	"homepage": "{{ project.url }}",
 	"require": {
 		"helhum/typo3-console": "{{ packages.typo3_console }}",
+{% for additional_package in packages.typo3_system_extensions %}
+		"{{ additional_package }}": "^{{ packages.typo3_cms }}",
+{% endfor %}
 		"typo3/cms-adminpanel": "^{{ packages.typo3_cms }}",
 		"typo3/cms-backend": "^{{ packages.typo3_cms }}",
 		"typo3/cms-belog": "^{{ packages.typo3_cms }}",
