@@ -25,7 +25,7 @@ ready-to-use DDEV configuration and basic configuration for deployment with Depl
 
 * Composer-based [TYPO3 CMS](https://typo3.org) project template
 * Ready-to-use [DDEV](https://ddev.readthedocs.io) configuration
-* Compatible with TYPO3 11.5 LTS
+* Compatible with TYPO3 11.5 LTS and 12.4 LTS
 * Support of current stable PHP versions, starting from PHP 8.0
 
 ### Optional features
