@@ -58,7 +58,7 @@ properties:
         name: TYPO3 version
         type: select
         options:
-          - value: 12.3
+          - value: 12.4
           - value: 11.5
         validators:
           - type: notEmpty
@@ -67,7 +67,7 @@ properties:
         type: dynamicSelect
         options:
           - value: '^7.0@dev'
-            if: 'packages["typo3_cms"] == "12.3"'
+            if: 'packages["typo3_cms"] == "12.4"'
           - value: '^6.16'
             if: 'packages["typo3_cms"] == "11.5"'
       - identifier: typo3_console
@@ -75,7 +75,7 @@ properties:
         type: dynamicSelect
         options:
           - value: '^8.0'
-            if: 'packages["typo3_cms"] == "12.3"'
+            if: 'packages["typo3_cms"] == "12.4"'
           - value: '^7.0.3'
             if: 'packages["typo3_cms"] == "11.5"'
       - identifier: typo3_console_binary
@@ -83,7 +83,7 @@ properties:
         type: dynamicSelect
         options:
           - value: 'typo3'
-            if: 'packages["typo3_cms"] == "12.3"'
+            if: 'packages["typo3_cms"] == "12.4"'
           - value: 'typo3cms'
             if: 'packages["typo3_cms"] == "11.5"'
       - identifier: php
@@ -96,6 +96,22 @@ properties:
             if: 'packages["typo3_cms"] == "11.5"'
         validators:
           - type: notEmpty
+      - identifier: typo3_system_extensions
+        name: Do you need additional TYPO3 system extensions?
+        type: select
+        multiple: true
+        options:
+          - value: 'typo3/cms-felogin'
+          - value: 'typo3/cms-filemetadata'
+          - value: 'typo3/cms-indexed-search'
+          - value: 'typo3/cms-linkvalidator'
+          - value: 'typo3/cms-reactions'
+            if: 'packages["typo3_cms"] == "12.4"'
+          - value: 'typo3/cms-sys-note'
+          - value: 'typo3/cms-t3editor'
+          - value: 'typo3/cms-webhooks'
+            if: 'packages["typo3_cms"] == "12.4"'
+          - value: 'typo3/cms-workspaces'
 
   # Features
   - identifier: features
