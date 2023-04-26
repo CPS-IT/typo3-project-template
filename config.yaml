@@ -66,9 +66,9 @@ properties:
         name: TYPO3 testing framework version
         type: dynamicSelect
         options:
-          - value: '^7.0@dev'
+          - value: '^8.0'
             if: 'packages["typo3_cms"] == "12.4"'
-          - value: '^6.16'
+          - value: '^7.0'
             if: 'packages["typo3_cms"] == "11.5"'
       - identifier: typo3_console
         name: TYPO3 console version
