@@ -36,7 +36,7 @@ ready-to-use DDEV configuration and basic configuration for deployment with Depl
 
 ## 🔥 Getting started
 
-1. [Create](https://github.com/CPS-IT/project-builder/blob/main/docs/usage.md) a new project:
+1. [Create](https://project-builder.cps-it.de/usage/composer.html) a new project:
 
    ```bash
    composer create-project cpsit/project-builder
