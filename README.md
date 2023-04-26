@@ -9,9 +9,9 @@
 [![Total Downloads](http://poser.pugx.org/cpsit/typo3-project-template/downloads)](https://packagist.org/packages/cpsit/typo3-project-template)
 [![License](http://poser.pugx.org/cpsit/typo3-project-template/license)](LICENSE.md)
 
-:package:&nbsp;[Packagist](https://packagist.org/packages/cpsit/typo3-project-template) |
-:floppy_disk:&nbsp;[Repository](https://github.com/CPS-IT/typo3-project-template) |
-:bug:&nbsp;[Issue tracker](https://github.com/CPS-IT/typo3-project-template/issues)
+📦&nbsp;[Packagist](https://packagist.org/packages/cpsit/typo3-project-template) |
+💾&nbsp;[Repository](https://github.com/CPS-IT/typo3-project-template) |
+🐛&nbsp;[Issue tracker](https://github.com/CPS-IT/typo3-project-template/issues)
 
 </div>
 
