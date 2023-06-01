@@ -8,7 +8,7 @@ steps:
         # Deployer
         - path: '.deployment/*'
           if: 'features["deployer"]'
-        - path: 'deploy.php'
+        - path: 'deploy.php.twig'
           if: 'features["deployer"]'
         # PHPStan
         - path: 'phpstan.neon'
