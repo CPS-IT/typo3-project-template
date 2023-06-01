@@ -9,9 +9,9 @@
 [![Total Downloads](http://poser.pugx.org/cpsit/typo3-project-template/downloads)](https://packagist.org/packages/cpsit/typo3-project-template)
 [![License](http://poser.pugx.org/cpsit/typo3-project-template/license)](LICENSE.md)
 
-:package:&nbsp;[Packagist](https://packagist.org/packages/cpsit/typo3-project-template) |
-:floppy_disk:&nbsp;[Repository](https://github.com/CPS-IT/typo3-project-template) |
-:bug:&nbsp;[Issue tracker](https://github.com/CPS-IT/typo3-project-template/issues)
+📦&nbsp;[Packagist](https://packagist.org/packages/cpsit/typo3-project-template) |
+💾&nbsp;[Repository](https://github.com/CPS-IT/typo3-project-template) |
+🐛&nbsp;[Issue tracker](https://github.com/CPS-IT/typo3-project-template/issues)
 
 </div>
 
@@ -36,7 +36,7 @@ ready-to-use DDEV configuration and basic configuration for deployment with Depl
 
 ## 🔥 Getting started
 
-1. [Create](https://github.com/CPS-IT/project-builder/blob/main/docs/usage.md) a new project:
+1. [Create](https://project-builder.cps-it.de/usage/composer.html) a new project:
 
    ```bash
    composer create-project cpsit/project-builder
