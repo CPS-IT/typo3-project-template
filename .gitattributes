@@ -4,3 +4,4 @@
 /.gitignore         export-ignore
 /codecov.yml        export-ignore
 /CONTRIBUTING.md    export-ignore
+/renovate.json      export-ignore
