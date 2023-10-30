@@ -174,16 +174,16 @@
         },
         {
             "name": "cuyz/valinor",
-            "version": "1.6.1",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CuyZ/Valinor.git",
-                "reference": "88c6b0f9299088de632d17610efffb54d55adba6"
+                "reference": "e384ad6d6801c3d4a03b444d267dbfec91ee23da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CuyZ/Valinor/zipball/88c6b0f9299088de632d17610efffb54d55adba6",
-                "reference": "88c6b0f9299088de632d17610efffb54d55adba6",
+                "url": "https://api.github.com/repos/CuyZ/Valinor/zipball/e384ad6d6801c3d4a03b444d267dbfec91ee23da",
+                "reference": "e384ad6d6801c3d4a03b444d267dbfec91ee23da",
                 "shasum": ""
             },
             "require": {
@@ -235,7 +235,7 @@
             ],
             "support": {
                 "issues": "https://github.com/CuyZ/Valinor/issues",
-                "source": "https://github.com/CuyZ/Valinor/tree/1.6.1"
+                "source": "https://github.com/CuyZ/Valinor/tree/1.7.0"
             },
             "funding": [
                 {
@@ -243,7 +243,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-10-11T08:40:51+00:00"
+            "time": "2023-10-23T11:05:23+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -2820,16 +2820,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v6.3.3",
+            "version": "v6.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "e23292e8c07c85b971b44c1c4b87af52133e2add"
+                "reference": "9758b6c69d179936435d0ffb577c3708d57e38a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/e23292e8c07c85b971b44c1c4b87af52133e2add",
-                "reference": "e23292e8c07c85b971b44c1c4b87af52133e2add",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/9758b6c69d179936435d0ffb577c3708d57e38a8",
+                "reference": "9758b6c69d179936435d0ffb577c3708d57e38a8",
                 "shasum": ""
             },
             "require": {
@@ -2872,7 +2872,7 @@
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/yaml/tree/v6.3.3"
+                "source": "https://github.com/symfony/yaml/tree/v6.3.7"
             },
             "funding": [
                 {
@@ -2888,7 +2888,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-07-31T07:08:24+00:00"
+            "time": "2023-10-28T23:31:00+00:00"
         },
         {
             "name": "twig/twig",
