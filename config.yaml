@@ -90,6 +90,7 @@ properties:
         name: PHP version
         type: select
         options:
+          - value: '8.3'
           - value: '8.2'
           - value: '8.1'
           - value: '8.0'
