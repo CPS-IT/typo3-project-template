@@ -6,5 +6,36 @@
 	],
 	"assignees": [
 		"eliashaeussler"
+	],
+	"customManagers": [
+		{
+			"customType": "regex",
+			"fileMatch": [
+				"^config\\.yaml$"
+			],
+			"matchStrings": [
+				"value: '(?<currentValue>[^']+)' # renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)"
+			]
+		},
+		{
+			"customType": "regex",
+			"fileMatch": [
+				"^templates/src/composer\\.json\\.twig$"
+			],
+			"matchStrings": [
+				"\"(?<depName>[\\w-]+/[\\w-]+)\": \"(?<currentValue>[^\"\\s]+)\""
+			],
+			"datasourceTemplate": "packagist"
+		}
+	],
+	"packageRules": [
+		{
+			"extends": [
+				":automergeDisabled"
+			],
+			"matchManagers": [
+				"regex"
+			]
+		}
 	]
 }
