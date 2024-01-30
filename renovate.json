@@ -34,7 +34,7 @@
 				":automergeDisabled"
 			],
 			"matchManagers": [
-				"regex"
+				"custom.regex"
 			]
 		}
 	]
