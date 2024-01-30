@@ -58,8 +58,9 @@ properties:
         name: TYPO3 version
         type: select
         options:
-          - value: 12.4
-          - value: 11.5
+          - value: '13.0'
+          - value: '12.4'
+          - value: '11.5'
         validators:
           - type: notEmpty
       - identifier: typo3_testing_framework
@@ -67,7 +68,7 @@ properties:
         type: dynamicSelect
         options:
           - value: '^8.0' # renovate: datasource=packagist depName=typo3/testing-framework
-            if: 'packages["typo3_cms"] == "12.4"'
+            if: 'packages["typo3_cms"] != "11.5"'
           - value: '^7.0'
             if: 'packages["typo3_cms"] == "11.5"'
       - identifier: typo3_console
@@ -75,7 +76,7 @@ properties:
         type: dynamicSelect
         options:
           - value: '^8.0' # renovate: datasource=packagist depName=helhum/typo3-console
-            if: 'packages["typo3_cms"] == "12.4"'
+            if: 'packages["typo3_cms"] != "11.5"'
           - value: '^7.0.3'
             if: 'packages["typo3_cms"] == "11.5"'
       - identifier: typo3_console_binary
@@ -83,7 +84,7 @@ properties:
         type: dynamicSelect
         options:
           - value: 'typo3'
-            if: 'packages["typo3_cms"] == "12.4"'
+            if: 'packages["typo3_cms"] != "11.5"'
           - value: 'typo3cms'
             if: 'packages["typo3_cms"] == "11.5"'
       - identifier: php
@@ -93,6 +94,7 @@ properties:
           - value: '8.3'
           - value: '8.2'
           - value: '8.1'
+            if: 'packages["typo3_cms"] != "13.0"'
           - value: '8.0'
             if: 'packages["typo3_cms"] == "11.5"'
         validators:
@@ -115,11 +117,12 @@ properties:
           - value: 'typo3/cms-indexed-search'
           - value: 'typo3/cms-linkvalidator'
           - value: 'typo3/cms-reactions'
-            if: 'packages["typo3_cms"] == "12.4"'
+            if: 'packages["typo3_cms"] != "11.5"'
           - value: 'typo3/cms-sys-note'
           - value: 'typo3/cms-t3editor'
+            if: 'packages["typo3_cms"] != "13.0"'
           - value: 'typo3/cms-webhooks'
-            if: 'packages["typo3_cms"] == "12.4"'
+            if: 'packages["typo3_cms"] != "11.5"'
           - value: 'typo3/cms-workspaces'
 
   # Features
