@@ -1,6 +1,6 @@
 {
 	"name": "cpsit/typo3-project-template",
-	"description": "Project builder template for new TYPO3 CMS projects",
+	"description": "TYPO3 CMS project template",
 	"license": "GPL-3.0-or-later",
 	"type": "project-builder-template",
 	"authors": [
