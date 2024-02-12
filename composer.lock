@@ -82,16 +82,16 @@
         },
         {
             "name": "cpsit/project-builder",
-            "version": "2.7.0",
+            "version": "2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CPS-IT/project-builder.git",
-                "reference": "86f091d94405d6c673d106a11b83939a0dbc7df3"
+                "reference": "87dd3b62d1e91a4041bf75840ce318d9a581c3fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CPS-IT/project-builder/zipball/86f091d94405d6c673d106a11b83939a0dbc7df3",
-                "reference": "86f091d94405d6c673d106a11b83939a0dbc7df3",
+                "url": "https://api.github.com/repos/CPS-IT/project-builder/zipball/87dd3b62d1e91a4041bf75840ce318d9a581c3fb",
+                "reference": "87dd3b62d1e91a4041bf75840ce318d9a581c3fb",
                 "shasum": ""
             },
             "require": {
@@ -137,7 +137,7 @@
                 "phpstan/phpstan-symfony": "^1.2",
                 "phpstan/phpstan-webmozart-assert": "^1.2",
                 "phpunit/phpunit": "^10.1",
-                "rector/rector": "^0.19.0",
+                "rector/rector": "^1.0.0",
                 "seld/jsonlint": "^1.9"
             },
             "type": "library",
@@ -168,9 +168,9 @@
             "description": "Composer package to create new projects from project templates",
             "support": {
                 "issues": "https://github.com/CPS-IT/project-builder/issues",
-                "source": "https://github.com/CPS-IT/project-builder/tree/2.7.0"
+                "source": "https://github.com/CPS-IT/project-builder/tree/2.8.0"
             },
-            "time": "2024-02-06T11:11:32+00:00"
+            "time": "2024-02-09T16:27:46+00:00"
         },
         {
             "name": "cuyz/valinor",
