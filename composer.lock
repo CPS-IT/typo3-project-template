@@ -82,16 +82,16 @@
         },
         {
             "name": "cpsit/project-builder",
-            "version": "2.8.0",
+            "version": "2.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CPS-IT/project-builder.git",
-                "reference": "87dd3b62d1e91a4041bf75840ce318d9a581c3fb"
+                "reference": "b7e1e69ea10a1bfca4b115b4c40691dcf2c4a8d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CPS-IT/project-builder/zipball/87dd3b62d1e91a4041bf75840ce318d9a581c3fb",
-                "reference": "87dd3b62d1e91a4041bf75840ce318d9a581c3fb",
+                "url": "https://api.github.com/repos/CPS-IT/project-builder/zipball/b7e1e69ea10a1bfca4b115b4c40691dcf2c4a8d0",
+                "reference": "b7e1e69ea10a1bfca4b115b4c40691dcf2c4a8d0",
                 "shasum": ""
             },
             "require": {
@@ -168,9 +168,9 @@
             "description": "Composer package to create new projects from project templates",
             "support": {
                 "issues": "https://github.com/CPS-IT/project-builder/issues",
-                "source": "https://github.com/CPS-IT/project-builder/tree/2.8.0"
+                "source": "https://github.com/CPS-IT/project-builder/tree/2.9.2"
             },
-            "time": "2024-02-09T16:27:46+00:00"
+            "time": "2024-02-14T17:35:25+00:00"
         },
         {
             "name": "cuyz/valinor",
