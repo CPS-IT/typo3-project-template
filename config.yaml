@@ -93,8 +93,6 @@ properties:
           - value: '8.3'
           - value: '8.2'
           - value: '8.1'
-          - value: '8.0'
-            if: 'packages["typo3_cms"] == "11.5"'
         validators:
           - type: notEmpty
       - identifier: editorconfig_cli
@@ -104,15 +102,7 @@ properties:
           - value: '^2.0' # renovate: datasource=packagist depName=armin/editorconfig-cli
             if: 'packages["php"] in ["8.2", "8.3"]'
           - value: '^1.5'
-            if: 'packages["php"] in ["8.0", "8.1"]'
-      - identifier: typo3_coding_standards
-        name: TYPO3 Coding Standards version
-        type: dynamicSelect
-        options:
-          - value: '^0.8.0' # renovate: datasource=packagist depName=typo3/coding-standards
-            if: 'packages["php"] != "8.0"'
-          - value: '^0.7.0'
-            if: 'packages["php"] == "8.0"'
+            if: 'packages["php"] == "8.1"'
       - identifier: typo3_system_extensions
         name: Do you need additional TYPO3 system extensions?
         type: select
