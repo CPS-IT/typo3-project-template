@@ -58,6 +58,7 @@ properties:
         name: TYPO3 version
         type: select
         options:
+          - value: 13.4
           - value: 12.4
           - value: 11.5
         validators:
@@ -66,7 +67,9 @@ properties:
         name: TYPO3 testing framework version
         type: dynamicSelect
         options:
-          - value: '^8.0' # renovate: datasource=packagist depName=typo3/testing-framework
+          - value: '^9.0' # renovate: datasource=packagist depName=typo3/testing-framework
+            if: 'packages["typo3_cms"] == "13.4"'
+          - value: '^8.0'
             if: 'packages["typo3_cms"] == "12.4"'
           - value: '^7.0'
             if: 'packages["typo3_cms"] == "11.5"'
@@ -74,8 +77,8 @@ properties:
         name: TYPO3 console version
         type: dynamicSelect
         options:
-          - value: '^8.0' # renovate: datasource=packagist depName=helhum/typo3-console
-            if: 'packages["typo3_cms"] == "12.4"'
+          - value: '^8.2.1' # renovate: datasource=packagist depName=helhum/typo3-console
+            if: 'packages["typo3_cms"] != "11.5"'
           - value: '^7.0.3'
             if: 'packages["typo3_cms"] == "11.5"'
       - identifier: typo3_console_binary
@@ -83,7 +86,7 @@ properties:
         type: dynamicSelect
         options:
           - value: 'typo3'
-            if: 'packages["typo3_cms"] == "12.4"'
+            if: 'packages["typo3_cms"] != "11.5"'
           - value: 'typo3cms'
             if: 'packages["typo3_cms"] == "11.5"'
       - identifier: php
@@ -94,6 +97,7 @@ properties:
           - value: '8.3'
           - value: '8.2'
           - value: '8.1'
+            if: 'packages["typo3_cms"] != "13.4"'
         validators:
           - type: notEmpty
       - identifier: editorconfig_cli
@@ -114,11 +118,12 @@ properties:
           - value: 'typo3/cms-indexed-search'
           - value: 'typo3/cms-linkvalidator'
           - value: 'typo3/cms-reactions'
-            if: 'packages["typo3_cms"] == "12.4"'
+            if: 'packages["typo3_cms"] != "11.5"'
           - value: 'typo3/cms-sys-note'
           - value: 'typo3/cms-t3editor'
+            if: 'packages["typo3_cms"] != "13.4"'
           - value: 'typo3/cms-webhooks'
-            if: 'packages["typo3_cms"] == "12.4"'
+            if: 'packages["typo3_cms"] != "11.5"'
           - value: 'typo3/cms-workspaces'
 
   # Features
@@ -128,9 +133,19 @@ properties:
       - identifier: phpstan
         name: Should <comment>PHPStan</comment> be integrated?
         type: question
+        options:
+          - value: '^2.0' # renovate: datasource=packagist depName=saschaegerer/phpstan-typo3
+            if: 'selected && packages["typo3_cms"] == "13.4"'
+          - value: '^1.8'
+            if: 'selected && packages["typo3_cms"] != "13.4"'
       - identifier: rector
         name: Should <comment>Rector</comment> be integrated?
         type: question
+        options:
+          - value: '^3.0' # renovate: datasource=packagist depName=ssch/typo3-rector
+            if: 'selected && packages["typo3_cms"] == "13.4"'
+          - value: '^2.0'
+            if: 'selected && packages["typo3_cms"] != "13.4"'
       - identifier: deployer
         name: Do you want a basic <comment>Deployer</comment> deployment configuration?
         type: question
