@@ -90,6 +90,7 @@ properties:
         name: PHP version
         type: select
         options:
+          - value: '8.4'
           - value: '8.3'
           - value: '8.2'
           - value: '8.1'
@@ -100,7 +101,7 @@ properties:
         type: dynamicSelect
         options:
           - value: '^2.0' # renovate: datasource=packagist depName=armin/editorconfig-cli
-            if: 'packages["php"] in ["8.2", "8.3"]'
+            if: 'packages["php"] != "8.1"'
           - value: '^1.5'
             if: 'packages["php"] == "8.1"'
       - identifier: typo3_system_extensions
