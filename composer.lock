@@ -82,16 +82,16 @@
         },
         {
             "name": "cpsit/project-builder",
-            "version": "2.12.0",
+            "version": "2.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CPS-IT/project-builder.git",
-                "reference": "103a3ef4ca64ddc908ce7d136f333e63002f2b73"
+                "reference": "c3f3426e0b7540c639777bcc257e5eed129aad1c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CPS-IT/project-builder/zipball/103a3ef4ca64ddc908ce7d136f333e63002f2b73",
-                "reference": "103a3ef4ca64ddc908ce7d136f333e63002f2b73",
+                "url": "https://api.github.com/repos/CPS-IT/project-builder/zipball/c3f3426e0b7540c639777bcc257e5eed129aad1c",
+                "reference": "c3f3426e0b7540c639777bcc257e5eed129aad1c",
                 "shasum": ""
             },
             "require": {
@@ -110,7 +110,7 @@
                 "psr/http-message": "^1.0 || ^2.0",
                 "sebastianfeldmann/cli": "^3.4",
                 "symfony/config": "^5.4 || ^6.0 || ^7.0",
-                "symfony/console": "^5.4 || ^6.0",
+                "symfony/console": "^5.4 || ^6.0 || ^7.0",
                 "symfony/dependency-injection": "^5.4 || ^6.0 || ^7.0",
                 "symfony/event-dispatcher": "^5.4 || ^6.0 || ^7.0",
                 "symfony/expression-language": "^5.4 || ^6.0 || ^7.0",
@@ -169,9 +169,9 @@
             "description": "Composer package to create new projects from project templates",
             "support": {
                 "issues": "https://github.com/CPS-IT/project-builder/issues",
-                "source": "https://github.com/CPS-IT/project-builder/tree/2.12.0"
+                "source": "https://github.com/CPS-IT/project-builder/tree/2.12.1"
             },
-            "time": "2024-10-03T18:35:58+00:00"
+            "time": "2024-11-07T10:22:45+00:00"
         },
         {
             "name": "cuyz/valinor",
@@ -1604,47 +1604,46 @@
         },
         {
             "name": "symfony/console",
-            "version": "v6.4.14",
+            "version": "v7.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "897c2441ed4eec8a8a2c37b943427d24dba3f26b"
+                "reference": "3284aafcac338b6e86fd955ee4d794cbe434151a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/897c2441ed4eec8a8a2c37b943427d24dba3f26b",
-                "reference": "897c2441ed4eec8a8a2c37b943427d24dba3f26b",
+                "url": "https://api.github.com/repos/symfony/console/zipball/3284aafcac338b6e86fd955ee4d794cbe434151a",
+                "reference": "3284aafcac338b6e86fd955ee4d794cbe434151a",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.1",
-                "symfony/deprecation-contracts": "^2.5|^3",
+                "php": ">=8.2",
                 "symfony/polyfill-mbstring": "~1.0",
                 "symfony/service-contracts": "^2.5|^3",
-                "symfony/string": "^5.4|^6.0|^7.0"
+                "symfony/string": "^6.4|^7.0"
             },
             "conflict": {
-                "symfony/dependency-injection": "<5.4",
-                "symfony/dotenv": "<5.4",
-                "symfony/event-dispatcher": "<5.4",
-                "symfony/lock": "<5.4",
-                "symfony/process": "<5.4"
+                "symfony/dependency-injection": "<6.4",
+                "symfony/dotenv": "<6.4",
+                "symfony/event-dispatcher": "<6.4",
+                "symfony/lock": "<6.4",
+                "symfony/process": "<6.4"
             },
             "provide": {
                 "psr/log-implementation": "1.0|2.0|3.0"
             },
             "require-dev": {
                 "psr/log": "^1|^2|^3",
-                "symfony/config": "^5.4|^6.0|^7.0",
-                "symfony/dependency-injection": "^5.4|^6.0|^7.0",
-                "symfony/event-dispatcher": "^5.4|^6.0|^7.0",
+                "symfony/config": "^6.4|^7.0",
+                "symfony/dependency-injection": "^6.4|^7.0",
+                "symfony/event-dispatcher": "^6.4|^7.0",
                 "symfony/http-foundation": "^6.4|^7.0",
                 "symfony/http-kernel": "^6.4|^7.0",
-                "symfony/lock": "^5.4|^6.0|^7.0",
-                "symfony/messenger": "^5.4|^6.0|^7.0",
-                "symfony/process": "^5.4|^6.0|^7.0",
-                "symfony/stopwatch": "^5.4|^6.0|^7.0",
-                "symfony/var-dumper": "^5.4|^6.0|^7.0"
+                "symfony/lock": "^6.4|^7.0",
+                "symfony/messenger": "^6.4|^7.0",
+                "symfony/process": "^6.4|^7.0",
+                "symfony/stopwatch": "^6.4|^7.0",
+                "symfony/var-dumper": "^6.4|^7.0"
             },
             "type": "library",
             "autoload": {
@@ -1678,7 +1677,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https://github.com/symfony/console/tree/v6.4.14"
+                "source": "https://github.com/symfony/console/tree/v7.1.7"
             },
             "funding": [
                 {
@@ -1694,7 +1693,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-11-05T15:34:40+00:00"
+            "time": "2024-11-05T15:34:55+00:00"
         },
         {
             "name": "symfony/dependency-injection",
@@ -2967,16 +2966,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v3.14.1",
+            "version": "v3.14.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "f405356d20fb43603bcadc8b09bfb676cb04a379"
+                "reference": "0b6f9d8370bb3b7f1ce5313ed8feb0fafd6e399a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/f405356d20fb43603bcadc8b09bfb676cb04a379",
-                "reference": "f405356d20fb43603bcadc8b09bfb676cb04a379",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/0b6f9d8370bb3b7f1ce5313ed8feb0fafd6e399a",
+                "reference": "0b6f9d8370bb3b7f1ce5313ed8feb0fafd6e399a",
                 "shasum": ""
             },
             "require": {
@@ -3030,7 +3029,7 @@
             ],
             "support": {
                 "issues": "https://github.com/twigphp/Twig/issues",
-                "source": "https://github.com/twigphp/Twig/tree/v3.14.1"
+                "source": "https://github.com/twigphp/Twig/tree/v3.14.2"
             },
             "funding": [
                 {
@@ -3042,7 +3041,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-11-06T18:17:38+00:00"
+            "time": "2024-11-07T12:36:22+00:00"
         },
         {
             "name": "webmozart/assert",
