@@ -4,10 +4,10 @@
 
 # TYPO3 CMS project builder template
 
-[![CGL](https://github.com/CPS-IT/typo3-project-template/actions/workflows/cgl.yaml/badge.svg)](https://github.com/CPS-IT/typo3-project-template/actions/workflows/cgl.yaml)
-[![Latest Stable Version](http://poser.pugx.org/cpsit/typo3-project-template/v)](https://packagist.org/packages/cpsit/typo3-project-template)
-[![Total Downloads](http://poser.pugx.org/cpsit/typo3-project-template/downloads)](https://packagist.org/packages/cpsit/typo3-project-template)
-[![License](http://poser.pugx.org/cpsit/typo3-project-template/license)](LICENSE.md)
+[![CGL](https://img.shields.io/github/actions/workflow/status/CPS-IT/typo3-project-template/cgl.yaml?label=cgl)](https://github.com/CPS-IT/typo3-project-template/actions/workflows/cgl.yaml)
+[![Latest Stable Version](https://img.shields.io/packagist/v/cpsit/typo3-project-template?label=version)](https://packagist.org/packages/cpsit/typo3-project-template)
+[![Total Downloads](https://img.shields.io/packagist/dt/cpsit/typo3-project-template?color=brightgreen)](https://packagist.org/packages/cpsit/typo3-project-template)
+![License](https://img.shields.io/packagist/l/cpsit/typo3-project-template)
 
 📦&nbsp;[Packagist](https://packagist.org/packages/cpsit/typo3-project-template) |
 💾&nbsp;[Repository](https://github.com/CPS-IT/typo3-project-template) |
