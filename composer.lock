@@ -3037,16 +3037,16 @@
     "packages-dev": [
         {
             "name": "armin/editorconfig-cli",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/a-r-m-i-n/editorconfig-cli.git",
-                "reference": "902e716afd137388fdf49fb83e140413d7d819e8"
+                "reference": "408dd6b11d67914f9b23fca21ea3f805157b35a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/a-r-m-i-n/editorconfig-cli/zipball/902e716afd137388fdf49fb83e140413d7d819e8",
-                "reference": "902e716afd137388fdf49fb83e140413d7d819e8",
+                "url": "https://api.github.com/repos/a-r-m-i-n/editorconfig-cli/zipball/408dd6b11d67914f9b23fca21ea3f805157b35a0",
+                "reference": "408dd6b11d67914f9b23fca21ea3f805157b35a0",
                 "shasum": ""
             },
             "require": {
@@ -3091,7 +3091,7 @@
                 "issues": "https://github.com/a-r-m-i-n/editorconfig-cli/issues",
                 "source": "https://github.com/a-r-m-i-n/editorconfig-cli"
             },
-            "time": "2025-01-27T21:03:30+00:00"
+            "time": "2025-06-02T17:23:31+00:00"
         },
         {
             "name": "ergebnis/composer-normalize",
