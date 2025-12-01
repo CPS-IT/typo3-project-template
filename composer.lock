@@ -3054,16 +3054,16 @@
     "packages-dev": [
         {
             "name": "armin/editorconfig-cli",
-            "version": "2.1.1",
+            "version": "2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/a-r-m-i-n/editorconfig-cli.git",
-                "reference": "408dd6b11d67914f9b23fca21ea3f805157b35a0"
+                "reference": "bf83ae440cdf4efd5e5705f01ca1cf39c8051dfa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/a-r-m-i-n/editorconfig-cli/zipball/408dd6b11d67914f9b23fca21ea3f805157b35a0",
-                "reference": "408dd6b11d67914f9b23fca21ea3f805157b35a0",
+                "url": "https://api.github.com/repos/a-r-m-i-n/editorconfig-cli/zipball/bf83ae440cdf4efd5e5705f01ca1cf39c8051dfa",
+                "reference": "bf83ae440cdf4efd5e5705f01ca1cf39c8051dfa",
                 "shasum": ""
             },
             "require": {
@@ -3071,16 +3071,16 @@
                 "ext-json": "*",
                 "idiosyncratic/editorconfig": "^0.1.1",
                 "php": "^8.2",
-                "symfony/console": "^5 || ^6 || ^7",
-                "symfony/finder": "^5 || ^6 || ^7",
-                "symfony/mime": "^5 || ^6 || ^7"
+                "symfony/console": "^5 || ^6 || ^7 || ^8",
+                "symfony/finder": "^5 || ^6 || ^7 || ^8",
+                "symfony/mime": "^5 || ^6 || ^7 || ^8"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.59",
-                "jangregor/phpstan-prophecy": "^2.0",
-                "phpstan/phpstan": "^2.0",
-                "phpunit/phpunit": "^10.5",
-                "seld/phar-utils": "^1.2"
+                "friendsofphp/php-cs-fixer": "^3.90.0",
+                "jangregor/phpstan-prophecy": "^2.2.0",
+                "phpstan/phpstan": "^2.1.32",
+                "phpunit/phpunit": "^10.5.58",
+                "seld/phar-utils": "^1.2.1"
             },
             "bin": [
                 "bin/ec"
@@ -3108,7 +3108,7 @@
                 "issues": "https://github.com/a-r-m-i-n/editorconfig-cli/issues",
                 "source": "https://github.com/a-r-m-i-n/editorconfig-cli"
             },
-            "time": "2025-06-02T17:23:31+00:00"
+            "time": "2025-11-29T14:44:26+00:00"
         },
         {
             "name": "ergebnis/composer-normalize",
