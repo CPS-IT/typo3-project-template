@@ -29,7 +29,7 @@ jobs:
 
       # Install dependencies
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@4.0.0
 
       # Check Composer dependencies
       - name: Check for unused dependencies
