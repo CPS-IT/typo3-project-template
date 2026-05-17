@@ -58,7 +58,7 @@ properties:
         name: TYPO3 version
         type: select
         options:
-          - value: '13.4' # renovate: datasource=packagist depName=typo3/cms-core
+          - value: '13.4.23' # renovate: datasource=packagist depName=typo3/cms-core
           - value: '12.4'
           - value: '11.5'
         validators:
