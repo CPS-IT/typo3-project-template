@@ -6,6 +6,9 @@
 	"assignees": [
 		"eliashaeussler"
 	],
+	"constraints": {
+		"php": "8.2.*"
+	},
 	"customManagers": [
 		{
 			"customType": "regex",
