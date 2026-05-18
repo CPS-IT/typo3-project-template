@@ -60,17 +60,8 @@ properties:
         options:
           - value: 14.3
           - value: 13.4
-          - value: 12.4
         validators:
           - type: notEmpty
-      - identifier: typo3_testing_framework
-        name: TYPO3 testing framework version
-        type: dynamicSelect
-        options:
-          - value: '^9.0' # renovate: datasource=packagist depName=typo3/testing-framework
-            if: 'packages["typo3_cms"] in ["13.4", "14.3"]'
-          - value: '^8.0'
-            if: 'packages["typo3_cms"] == "12.4"'
       - identifier: php
         name: PHP version
         type: select
