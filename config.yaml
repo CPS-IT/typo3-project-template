@@ -126,6 +126,8 @@ properties:
           - value: 'typo3/cms-webhooks'
             if: 'packages["typo3_cms"] != "11.5"'
           - value: 'typo3/cms-workspaces'
+          - value: 'typo3/theme-camino'
+            if: 'packages["typo3_cms"] == "14.3"'
 
   # Features
   - identifier: features
