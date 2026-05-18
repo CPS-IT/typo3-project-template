@@ -134,7 +134,7 @@ properties:
         name: Should <comment>PHPStan</comment> be integrated?
         type: question
         options:
-          - value: '^2.0' # renovate: datasource=packagist depName=saschaegerer/phpstan-typo3
+          - value: '^3.0' # renovate: datasource=packagist depName=saschaegerer/phpstan-typo3
             if: 'selected && packages["typo3_cms"] == "13.4"'
           - value: '^1.8'
             if: 'selected && packages["typo3_cms"] != "13.4"'
