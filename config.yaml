@@ -58,6 +58,7 @@ properties:
         name: TYPO3 version
         type: select
         options:
+          - value: 14.3
           - value: 13.4
           - value: 12.4
           - value: 11.5
@@ -68,7 +69,7 @@ properties:
         type: dynamicSelect
         options:
           - value: '^9.0' # renovate: datasource=packagist depName=typo3/testing-framework
-            if: 'packages["typo3_cms"] == "13.4"'
+            if: 'packages["typo3_cms"] in ["13.4", "14.3"]'
           - value: '^8.0'
             if: 'packages["typo3_cms"] == "12.4"'
           - value: '^7.0'
@@ -97,7 +98,7 @@ properties:
           - value: '8.3'
           - value: '8.2'
           - value: '8.1'
-            if: 'packages["typo3_cms"] != "13.4"'
+            if: 'packages["typo3_cms"] not in ["13.4", "14.3"]'
         validators:
           - type: notEmpty
       - identifier: editorconfig_cli
@@ -121,7 +122,7 @@ properties:
             if: 'packages["typo3_cms"] != "11.5"'
           - value: 'typo3/cms-sys-note'
           - value: 'typo3/cms-t3editor'
-            if: 'packages["typo3_cms"] != "13.4"'
+            if: 'packages["typo3_cms"] not in ["13.4", "14.3"]'
           - value: 'typo3/cms-webhooks'
             if: 'packages["typo3_cms"] != "11.5"'
           - value: 'typo3/cms-workspaces'
@@ -134,18 +135,20 @@ properties:
         name: Should <comment>PHPStan</comment> be integrated?
         type: question
         options:
-          - value: '^2.0' # renovate: datasource=packagist depName=saschaegerer/phpstan-typo3
+          - value: '^3.0' # renovate: datasource=packagist depName=saschaegerer/phpstan-typo3
+            if: 'selected && packages["typo3_cms"] == "14.3"'
+          - value: '^2.0'
             if: 'selected && packages["typo3_cms"] == "13.4"'
           - value: '^1.8'
-            if: 'selected && packages["typo3_cms"] != "13.4"'
+            if: 'selected && packages["typo3_cms"] not in ["13.4", "14.3"]'
       - identifier: rector
         name: Should <comment>Rector</comment> be integrated?
         type: question
         options:
           - value: '^3.0' # renovate: datasource=packagist depName=ssch/typo3-rector
-            if: 'selected && packages["typo3_cms"] == "13.4"'
+            if: 'selected && packages["typo3_cms"] in ["13.4", "14.3"]'
           - value: '^2.0'
-            if: 'selected && packages["typo3_cms"] != "13.4"'
+            if: 'selected && packages["typo3_cms"] not in ["13.4", "14.3"]'
       - identifier: deployer
         name: Do you want a basic <comment>Deployer</comment> deployment configuration?
         type: question

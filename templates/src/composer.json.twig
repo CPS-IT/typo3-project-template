@@ -42,7 +42,9 @@
 		"typo3/cms-rte-ckeditor": "^{{ packages.typo3_cms }}",
 		"typo3/cms-scheduler": "^{{ packages.typo3_cms }}",
 		"typo3/cms-seo": "^{{ packages.typo3_cms }}",
+{% if packages.typo3_cms != "14.3" %}
 		"typo3/cms-setup": "^{{ packages.typo3_cms }}",
+{% endif %}
 		"typo3/cms-tstemplate": "^{{ packages.typo3_cms }}",
 		"typo3/cms-viewpage": "^{{ packages.typo3_cms }}"
 	},
