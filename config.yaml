@@ -69,18 +69,8 @@ properties:
           - value: '8.4'
           - value: '8.3'
           - value: '8.2'
-          - value: '8.1'
-            if: 'packages["typo3_cms"] not in ["13.4", "14.3"]'
         validators:
           - type: notEmpty
-      - identifier: editorconfig_cli
-        name: Editorconfig CLI version
-        type: dynamicSelect
-        options:
-          - value: '^2.0' # renovate: datasource=packagist depName=armin/editorconfig-cli
-            if: 'packages["php"] != "8.1"'
-          - value: '^1.5'
-            if: 'packages["php"] == "8.1"'
       - identifier: typo3_system_extensions
         name: Do you need additional TYPO3 system extensions?
         type: select
@@ -92,8 +82,6 @@ properties:
           - value: 'typo3/cms-linkvalidator'
           - value: 'typo3/cms-reactions'
           - value: 'typo3/cms-sys-note'
-          - value: 'typo3/cms-t3editor'
-            if: 'packages["typo3_cms"] not in ["13.4", "14.3"]'
           - value: 'typo3/cms-webhooks'
           - value: 'typo3/cms-workspaces'
           - value: 'typo3/theme-camino'
@@ -111,16 +99,6 @@ properties:
             if: 'selected && packages["typo3_cms"] == "14.3"'
           - value: '^2.0'
             if: 'selected && packages["typo3_cms"] == "13.4"'
-          - value: '^1.8'
-            if: 'selected && packages["typo3_cms"] not in ["13.4", "14.3"]'
-      - identifier: rector
-        name: Should <comment>Rector</comment> be integrated?
-        type: question
-        options:
-          - value: '^3.0' # renovate: datasource=packagist depName=ssch/typo3-rector
-            if: 'selected && packages["typo3_cms"] in ["13.4", "14.3"]'
-          - value: '^2.0'
-            if: 'selected && packages["typo3_cms"] not in ["13.4", "14.3"]'
       - identifier: deployer
         name: Do you want a basic <comment>Deployer</comment> deployment configuration?
         type: question

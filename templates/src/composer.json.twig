@@ -46,7 +46,7 @@
 		"typo3/cms-viewpage": "^{{ packages.typo3_cms }}"
 	},
 	"require-dev": {
-		"armin/editorconfig-cli": "{{ packages.editorconfig_cli }}",
+		"armin/editorconfig-cli": "^2.0",
 {% if features.deployer %}
 		"deployer/deployer": "^7.0",
 {% endif %}
@@ -61,7 +61,7 @@
 		"saschaegerer/phpstan-typo3": "{{ features.phpstan }}",
 {% endif %}
 {% if features.rector %}
-		"ssch/typo3-rector": "{{ features.rector }}",
+		"ssch/typo3-rector": "^3.0",
 {% endif %}
 		"typo3/coding-standards": "^0.8.0",
 		"typo3/testing-framework": "^9.0"
