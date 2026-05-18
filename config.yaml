@@ -8,7 +8,7 @@ steps:
         # Deployer
         - path: '.deployment/*'
           if: 'features["deployer"]'
-        - path: 'deploy.php.twig'
+        - path: 'deploy.php'
           if: 'features["deployer"]'
         # PHPStan
         - path: 'phpstan.neon'
@@ -61,7 +61,6 @@ properties:
           - value: 14.3
           - value: 13.4
           - value: 12.4
-          - value: 11.5
         validators:
           - type: notEmpty
       - identifier: typo3_testing_framework
@@ -72,24 +71,6 @@ properties:
             if: 'packages["typo3_cms"] in ["13.4", "14.3"]'
           - value: '^8.0'
             if: 'packages["typo3_cms"] == "12.4"'
-          - value: '^7.0'
-            if: 'packages["typo3_cms"] == "11.5"'
-      - identifier: typo3_console
-        name: TYPO3 console version
-        type: dynamicSelect
-        options:
-          - value: '^8.2.1' # renovate: datasource=packagist depName=helhum/typo3-console
-            if: 'packages["typo3_cms"] != "11.5"'
-          - value: '^7.0.3'
-            if: 'packages["typo3_cms"] == "11.5"'
-      - identifier: typo3_console_binary
-        name: TYPO3 console binary
-        type: dynamicSelect
-        options:
-          - value: 'typo3'
-            if: 'packages["typo3_cms"] != "11.5"'
-          - value: 'typo3cms'
-            if: 'packages["typo3_cms"] == "11.5"'
       - identifier: php
         name: PHP version
         type: select
@@ -119,12 +100,10 @@ properties:
           - value: 'typo3/cms-indexed-search'
           - value: 'typo3/cms-linkvalidator'
           - value: 'typo3/cms-reactions'
-            if: 'packages["typo3_cms"] != "11.5"'
           - value: 'typo3/cms-sys-note'
           - value: 'typo3/cms-t3editor'
             if: 'packages["typo3_cms"] not in ["13.4", "14.3"]'
           - value: 'typo3/cms-webhooks'
-            if: 'packages["typo3_cms"] != "11.5"'
           - value: 'typo3/cms-workspaces'
           - value: 'typo3/theme-camino'
             if: 'packages["typo3_cms"] == "14.3"'
