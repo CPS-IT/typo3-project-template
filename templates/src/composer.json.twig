@@ -11,7 +11,7 @@
 	],
 	"homepage": "{{ project.url }}",
 	"require": {
-		"helhum/typo3-console": "{{ packages.typo3_console }}",
+		"helhum/typo3-console": "^8.2.1",
 {% for additional_package in packages.typo3_system_extensions %}
 		"{{ additional_package }}": "^{{ packages.typo3_cms }}",
 {% endfor %}
@@ -33,9 +33,6 @@
 		"typo3/cms-install": "^{{ packages.typo3_cms }}",
 		"typo3/cms-lowlevel": "^{{ packages.typo3_cms }}",
 		"typo3/cms-opendocs": "^{{ packages.typo3_cms }}",
-{% if packages.typo3_cms == "11.5" %}
-		"typo3/cms-recordlist": "^{{ packages.typo3_cms }}",
-{% endif %}
 		"typo3/cms-recycler": "^{{ packages.typo3_cms }}",
 		"typo3/cms-redirects": "^{{ packages.typo3_cms }}",
 		"typo3/cms-reports": "^{{ packages.typo3_cms }}",
@@ -134,7 +131,7 @@
 		],
 		"test:unit": "phpunit -c phpunit.xml",
 		"typo3-cms-scripts": [
-			"{{ packages.typo3_console_binary }} install:fixfolderstructure"
+			"typo3 install:fixfolderstructure"
 		]
 	},
 	"scripts-descriptions": {

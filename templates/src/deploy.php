@@ -1,5 +1,5 @@
 <?php
-{% verbatim %}
+
 declare(strict_types=1);
 
 namespace Deployer;
@@ -14,7 +14,7 @@ import('.deployment/hosts.yaml');
 
 // Define binaries
 set('bin/php', 'php');
-set('bin/typo3_console', '{{release_path}}/vendor/bin/{% endverbatim %}{{ packages.typo3_console_binary }}{% verbatim %}');
+set('bin/typo3_console', '{{release_path}}/vendor/bin/typo3');
 
 // Set maximum number of releases
 set('keep_releases', 5);
@@ -122,13 +122,8 @@ task('typo3:language_update', function () {
 
 desc('Execute upgrade wizards');
 task('typo3:upgrade_all', function () {
-{% if packages.typo3_cms == "11.5" %}
-    run('{{bin/typo3_console}} upgrade:prepare');
-    run('{{bin/typo3_console}} upgrade:run all --confirm all');
-{% else %}
     run('{{bin/typo3_console}} upgrade:run');
-{% endif %}
-%});
+});
 
 // Register TYPO3 tasks
 before('deploy:symlink', function () {
@@ -152,4 +147,3 @@ task('deploy', [
 
 // Unlock on failed deployment
 after('deploy:failed', 'deploy:unlock');
-{% endverbatim %}
