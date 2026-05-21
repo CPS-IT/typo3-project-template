@@ -21,7 +21,7 @@ jobs:
       # Check if tag is valid
       - name: Check tag
         run: |
-          if ! [[ "${REF_NAME}" =~ ^[0-9]+\.[0-9]+\.[0-9]+\$ ]]; then
+          if ! [[ "${REF_NAME}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
             exit 1
           fi
 
