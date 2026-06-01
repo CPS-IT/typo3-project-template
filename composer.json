@@ -21,6 +21,7 @@
 	},
 	"config": {
 		"allow-plugins": {
+			"cpsit/project-builder": true,
 			"ergebnis/composer-normalize": true
 		},
 		"sort-packages": true
