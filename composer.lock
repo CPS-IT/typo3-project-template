@@ -82,16 +82,16 @@
         },
         {
             "name": "cpsit/project-builder",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CPS-IT/project-builder.git",
-                "reference": "e290f1ac8cf600d45ed61d6cd06bffb6e14596fb"
+                "reference": "7be772af75df2325942de79d288cd0f1d170b748"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CPS-IT/project-builder/zipball/e290f1ac8cf600d45ed61d6cd06bffb6e14596fb",
-                "reference": "e290f1ac8cf600d45ed61d6cd06bffb6e14596fb",
+                "url": "https://api.github.com/repos/CPS-IT/project-builder/zipball/7be772af75df2325942de79d288cd0f1d170b748",
+                "reference": "7be772af75df2325942de79d288cd0f1d170b748",
                 "shasum": ""
             },
             "require": {
@@ -124,7 +124,7 @@
             },
             "require-dev": {
                 "armin/editorconfig-cli": "^2.0",
-                "composer/composer": "~2.2.28 || ~2.9.8",
+                "composer/composer": "~2.2.28 || ~2.10.0",
                 "composer/semver": "^3.0",
                 "composer/xdebug-handler": "^3.0",
                 "cpsit/php-cs-fixer-config": "^1.1",
@@ -171,9 +171,9 @@
             "description": "Composer package to create new projects from project templates",
             "support": {
                 "issues": "https://github.com/CPS-IT/project-builder/issues",
-                "source": "https://github.com/CPS-IT/project-builder/tree/3.0.0"
+                "source": "https://github.com/CPS-IT/project-builder/tree/3.0.1"
             },
-            "time": "2026-05-26T06:36:01+00:00"
+            "time": "2026-06-01T14:18:46+00:00"
         },
         {
             "name": "cuyz/valinor",
@@ -2935,16 +2935,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v3.26.0",
+            "version": "v3.27.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "1fcae487b180d78e6351f4e0afa91f9eab96a2bc"
+                "reference": "ae2071bffb38f04847fc0864d730c94b9cb8ab74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/1fcae487b180d78e6351f4e0afa91f9eab96a2bc",
-                "reference": "1fcae487b180d78e6351f4e0afa91f9eab96a2bc",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/ae2071bffb38f04847fc0864d730c94b9cb8ab74",
+                "reference": "ae2071bffb38f04847fc0864d730c94b9cb8ab74",
                 "shasum": ""
             },
             "require": {
@@ -2999,7 +2999,7 @@
             ],
             "support": {
                 "issues": "https://github.com/twigphp/Twig/issues",
-                "source": "https://github.com/twigphp/Twig/tree/v3.26.0"
+                "source": "https://github.com/twigphp/Twig/tree/v3.27.1"
             },
             "funding": [
                 {
@@ -3011,7 +3011,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-05-20T07:31:59+00:00"
+            "time": "2026-05-30T17:09:26+00:00"
         },
         {
             "name": "webmozart/assert",
