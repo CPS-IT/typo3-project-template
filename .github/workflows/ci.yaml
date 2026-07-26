@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  prepare:
+    name: 'Prepare workflow'
+    uses: eliashaeussler/gha/.github/workflows/preparation.yaml@a6093ebd6b0e93dedcb221832dadcb279bff4cbd # 0.9.1
+
+  checks:
+    name: 'Checks'
+
+    needs: [prepare]
+    if: ${{ needs.prepare.outputs.continue == 'true' }}
+
+    permissions:
+      contents: read
+      security-events: write
+
+    uses: eliashaeussler/gha/.github/workflows/checks.yaml@a6093ebd6b0e93dedcb221832dadcb279bff4cbd # 0.9.1
+    with:
+      # We use the minimum supported PHP version
+      php-version: 8.2 # renovate-ignore

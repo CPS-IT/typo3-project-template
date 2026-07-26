@@ -27,30 +27,39 @@
 		"sort-packages": true
 	},
 	"scripts": {
+		"check": [
+			"@check:style"
+		],
+		"check:style": [
+			"@check:style:composer",
+			"@check:style:editorconfig",
+			"@check:style:twig"
+		],
+		"check:style:composer": "@fix:composer --dry-run",
+		"check:style:editorconfig": "ec",
+		"check:style:twig": "twigcs templates",
+		"ci": [
+			"@composer validate --strict",
+			"@composer audit",
+			"@check"
+		],
 		"fix": [
 			"@fix:composer",
 			"@fix:editorconfig"
 		],
 		"fix:composer": "@composer normalize",
-		"fix:editorconfig": "ec --fix",
-		"lint": [
-			"@lint:composer",
-			"@lint:editorconfig",
-			"@lint:twig"
-		],
-		"lint:composer": "@composer normalize --dry-run",
-		"lint:editorconfig": "ec",
-		"lint:twig": "twigcs templates",
+		"fix:editorconfig": "@check:style:editorconfig --fix",
 		"validate-schema": "docker run --rm -v \"$(pwd)\":/code swaggest/json-cli json-cli validate-schema config.yaml vendor/cpsit/project-builder/resources/config.schema.json"
 	},
 	"scripts-descriptions": {
-		"fix": "Fix all code quality issues reported by the registered linters",
+		"check": "Run all code quality checks",
+		"check:style": "Run all code style checks",
+		"check:style:composer": "Check code style of `composer.json`",
+		"check:style:editorconfig": "Check all project files for compliance with `.editorconfig` rules",
+		"check:style:twig": "Check all Twig templates to detect coding style violations",
+		"fix": "Fix all code quality issues",
 		"fix:composer": "Fix all issues in `composer.json`",
-		"fix:editorconfig": "Fix all styling issues violating the `.editorconfig` rules",
-		"lint": "Run all registered linters to detect code quality issues",
-		"lint:composer": "Lint `composer.json` to detect unnormalized styles",
-		"lint:editorconfig": "Lint all project files to detect violations of the `.editorconfig` rules",
-		"lint:twig": "Lint all Twig templates to detect coding style violations",
+		"fix:editorconfig": "Fix all styling issues violating `.editorconfig` rules",
 		"validate-schema": "Validate the `config.yaml` file for possible schema violations"
 	}
 }

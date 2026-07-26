@@ -60,6 +60,7 @@
 {% if features.phpstan %}
 		"saschaegerer/phpstan-typo3": "{{ features.phpstan }}",
 {% endif %}
+		"shipmonk/composer-dependency-analyser": "^1.8",
 {% if features.rector %}
 		"ssch/typo3-rector": "^3.0",
 {% endif %}
@@ -81,17 +82,61 @@
 			"typo3/class-alias-loader": true,
 			"typo3/cms-composer-installers": true
 		},
-		"audit": {
-			"abandoned": "report"
-		},
 		"platform": {
 			"php": "{{ get_latest_stable_php_version(packages.php) }}"
+		},
+		"policy": {
+			"abandoned": {
+				"audit": "report"
+			}
 		},
 		"sort-packages": true
 	},
 	"scripts": {
 		"post-autoload-dump": [
-			"@typo3-cms-scripts"
+			"typo3 install:fixfolderstructure"
+		],
+		"check": [
+			"@check:deps",
+{% if features.rector %}
+			"@check:refactor",
+{% endif %}
+{% if features.phpstan %}
+			"@check:static",
+{% endif %}
+			"@check:style"
+		],
+		"check:deps": "composer-dependency-analyser",
+{% if features.rector %}
+		"check:refactor": [
+			"@check:refactor:php"
+		],
+		"check:refactor:php": "@refactor:php --dry-run",
+{% endif %}
+{% if features.phpstan %}
+		"check:static": "phpstan analyse -c build/checks/phpstan.neon --memory-limit=2G $(find packages -mindepth 2 -maxdepth 2 -type d -name 'Classes' -o -name 'Configuration' -o -name 'Tests')",
+{% endif %}
+		"check:style": [
+			"@check:style:composer",
+			"@check:style:editorconfig",
+			"@check:style:php",
+			"@check:style:typoscript"
+		],
+		"check:style:composer": "@fix:composer --dry-run",
+		"check:style:editorconfig": "ec",
+		"check:style:php": "@fix:php --dry-run",
+		"check:style:typoscript": "typoscript-lint -c build/checks/typoscript-lint.yml --fail-on-warnings",
+		"ci": [
+			"@composer validate --strict",
+			"@composer audit",
+			"@check:deps",
+{% if features.rector %}
+			"@check:refactor",
+{% endif %}
+{% if features.phpstan %}
+			"@check:static --error-format github",
+{% endif %}
+			"@check:style"
 		],
 		"fix": [
 			"@fix:composer",
@@ -99,61 +144,45 @@
 			"@fix:php"
 		],
 		"fix:composer": "@composer normalize",
-		"fix:editorconfig": "ec --fix",
-		"fix:php": "php-cs-fixer fix",
-		"lint": [
-			"@lint:composer",
-			"@lint:editorconfig",
-			"@lint:php",
-			"@lint:typoscript"
-		],
-		"lint:composer": "@composer normalize --dry-run",
-		"lint:editorconfig": "ec",
-		"lint:php": "php-cs-fixer fix --dry-run",
-		"lint:typoscript": "typoscript-lint",
+		"fix:editorconfig": "@check:style:editorconfig --fix",
+		"fix:php": "php-cs-fixer fix --config build/checks/.php-cs-fixer.php",
 {% if features.rector %}
-		"migration": [
-			"@migration:rector"
+		"refactor": [
+			"@refactor:php"
 		],
-		"migration:rector": [
+		"refactor:php": [
 			"Composer\\Config::disableProcessTimeout",
-			"rector process"
+			"rector process -c build/checks/rector.php"
 		],
 {% endif %}
-{% if features.phpstan %}
-		"sca": [
-			"@sca:php"
-		],
-		"sca:php": "phpstan analyse -c phpstan.neon --memory-limit=2G $(find packages -mindepth 2 -maxdepth 2 -type d -name 'Classes' -o -name 'Configuration' -o -name 'Tests')",
-{% endif %}
-		"test": [
-			"@test:unit"
-		],
-		"test:unit": "phpunit -c phpunit.xml",
-		"typo3-cms-scripts": [
-			"typo3 install:fixfolderstructure"
-		]
+		"test": "@test:coverage --no-coverage",
+		"test:coverage": "phpunit -c build/tests/phpunit.xml"
 	},
 	"scripts-descriptions": {
-		"fix": "Fix all code quality issues reported by the registered linters",
-		"fix:composer": "Fix all issues in `composer.json`",
-		"fix:editorconfig": "Fix all styling issues violating the `.editorconfig` rules",
-		"fix:php": "Fix all styling issues violating the configured PHP-CS-Fixer rules",
-		"lint": "Run all registered linters to detect code quality issues",
-		"lint:composer": "Lint `composer.json` to detect unnormalized styles",
-		"lint:editorconfig": "Lint all project files to detect violations of the `.editorconfig` rules",
-		"lint:php": "Lint all PHP files to detect coding style violations",
-		"lint:typoscript": "Lint all TypoScript and TSconfig files to detect coding style violations",
+		"check": "Run all code quality checks",
+		"check:deps": "Check dependency usage",
 {% if features.rector %}
-		"migration": "Run all registered automatic code migrations",
-		"migration:rector": "Perform automatic code migration with TYPO3 Rector, based on the registered rules",
+		"check:refactor": "Check for possible code refactorings",
+		"check:refactor:php": "Check for possible PHP code refactorings with TYPO3 Rector",
 {% endif %}
 {% if features.phpstan %}
-		"sca": "Run all registered static code analyzers to detect issues in the codebase",
-		"sca:php": "Analyze all PHP files by using PHPStan, based on the configured level",
+		"check:static": "Check for errors reported by the static code analyzers",
 {% endif %}
-		"test": "Run all configured test suites",
-		"test:unit": "Run unit tests for all local packages",
-		"typo3-cms-scripts": "Perform TYPO3-related initialization scripts (this normally happens automatically)"
+		"check:style": "Run all code style checks",
+		"check:style:composer": "Check code style of `composer.json`",
+		"check:style:editorconfig": "Check all project files for compliance with `.editorconfig` rules",
+		"check:style:php": "Check code style of PHP files",
+		"check:style:typoscript": "Check code style of TypoScript files",
+		"ci": "Run all checks in CI",
+		"fix": "Fix all code quality issues",
+		"fix:composer": "Fix all issues in `composer.json`",
+		"fix:editorconfig": "Fix all styling issues violating `.editorconfig` rules",
+		"fix:php": "Fix all issues in PHP files",
+{% if features.rector %}
+		"refactor": "Apply all possible code refactorings",
+		"refactor:php": "Apply possible PHP code refactorings with TYPO3 Rector",
+{% endif %}
+		"test": "Run tests with PHPUnit",
+		"test:coverage": "Run tests and collect code coverage"
 	}
 }

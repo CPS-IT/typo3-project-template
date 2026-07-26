@@ -11,12 +11,14 @@ use Ssch\TYPO3Rector\CodeQuality\General\ExtEmConfRector;
 use Ssch\TYPO3Rector\Configuration\Typo3Option;
 use Ssch\TYPO3Rector\Set\Typo3LevelSetList;
 
+$rootPath = dirname(__DIR__, 2);
+
 return RectorConfig::configure()
     ->withConfiguredRule(ExtEmConfRector::class, [
         ExtEmConfRector::ADDITIONAL_VALUES_TO_BE_REMOVED => [],
     ])
     ->withPaths([
-        __DIR__ . '/packages/*',
+        $rootPath . '/packages/*',
     ])
     ->withPhpSets(php{{ packages.php|replace({'.': ''}) }}: true)
     ->withSets([
@@ -32,14 +34,14 @@ return RectorConfig::configure()
     ])
     ->withSkip([
         // @see https://github.com/sabbelasichon/typo3-rector/issues/2536
-        __DIR__ . '/**/Configuration/ExtensionBuilder/*',
+        $rootPath . '/**/Configuration/ExtensionBuilder/*',
 
         NameImportingPostRector::class => [
             'ext_localconf.php',
             'ext_tables.php',
             'ClassAliasMap.php',
-            __DIR__ . '/**/Configuration/*.php',
-            __DIR__ . '/**/Configuration/**/*.php',
+            $rootPath . '/**/Configuration/*.php',
+            $rootPath . '/**/Configuration/**/*.php',
         ],
 
         // We skip this rector rule as it interferes with TYPO3 coding standards

@@ -1,32 +1,14 @@
 name: Release
+
 on:
   push:
     tags:
       - '*'
-
-env:
-  REF_NAME: ${{ github.ref_name }}
 
 permissions:
   contents: write
 
 jobs:
   release:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
-        with:
-          persist-credentials: false
-
-      # Check if tag is valid
-      - name: Check tag
-        run: |
-          if ! [[ "${REF_NAME}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            exit 1
-          fi
-
-      # Create release
-      - name: Create release
-        env:
-          GH_TOKEN: ${{ secrets.RELEASE_TOKEN }}
-        run: gh release create "$REF_NAME" --generate-notes
+    name: 'Create release'
+    uses: eliashaeussler/gha/.github/workflows/github-release.yaml@a6093ebd6b0e93dedcb221832dadcb279bff4cbd # 0.9.1
