@@ -82,16 +82,16 @@
         },
         {
             "name": "cpsit/project-builder",
-            "version": "3.0.1",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CPS-IT/project-builder.git",
-                "reference": "7be772af75df2325942de79d288cd0f1d170b748"
+                "reference": "c72152e2ef3bbeb22ae1426ccfed41169ce2f4b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CPS-IT/project-builder/zipball/7be772af75df2325942de79d288cd0f1d170b748",
-                "reference": "7be772af75df2325942de79d288cd0f1d170b748",
+                "url": "https://api.github.com/repos/CPS-IT/project-builder/zipball/c72152e2ef3bbeb22ae1426ccfed41169ce2f4b1",
+                "reference": "c72152e2ef3bbeb22ae1426ccfed41169ce2f4b1",
                 "shasum": ""
             },
             "require": {
@@ -102,7 +102,7 @@
                 "ext-filter": "*",
                 "ext-json": "*",
                 "ext-mbstring": "*",
-                "guzzlehttp/guzzle": "^7.0",
+                "guzzlehttp/guzzle": "^7.0 || ^8.0",
                 "nyholm/psr7": "^1.5",
                 "opis/json-schema": "^2.3",
                 "php": "~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0",
@@ -171,9 +171,9 @@
             "description": "Composer package to create new projects from project templates",
             "support": {
                 "issues": "https://github.com/CPS-IT/project-builder/issues",
-                "source": "https://github.com/CPS-IT/project-builder/tree/3.0.1"
+                "source": "https://github.com/CPS-IT/project-builder/tree/3.0.2"
             },
-            "time": "2026-06-01T14:18:46+00:00"
+            "time": "2026-07-26T18:17:44+00:00"
         },
         {
             "name": "cuyz/valinor",
